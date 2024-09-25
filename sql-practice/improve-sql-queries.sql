@@ -79,7 +79,7 @@ SELECT * FROM cats
 
 -- Analyze Query:
 
-    -- QUERY PLAN
+-- EXPLAIN QUERY PLAN <QUERY>
 |--SEARCH cat_toys USING INDEX idx_toy_id (toy_id=?)
 `--SEARCH cats USING INTEGER PRIMARY KEY (rowid=?)
 -- Run Time: real 0.000 user 0.000000 sys 0.000000
@@ -113,16 +113,16 @@ SELECT * FROM cats
     -- Improved slightly, from .003 to .002 (repeatedly) and .001 (once)
 
 
-    -- I had to prevent SQLite from caching query results to see the difference.
+    -- I think I had to prevent SQLite from caching query results to see the difference.
     -- One effective method is to use the "PRAGMA" statement to modify SQLite's behavior.
     -- You can try the following:
 
     -- Before running your query, execute:
-    --     PRAGMA cache_size = 0;
-    --     PRAGMA temp_store = MEMORY;
+        PRAGMA cache_size = 0;
+        PRAGMA temp_store = MEMORY;
 
     -- After your query, you can clear the cache with:
-    --     PRAGMA cache_size = -2000;
+        PRAGMA cache_size = -2000;
 
 
     -- Do you see any other opportunities for making this query more efficient?
