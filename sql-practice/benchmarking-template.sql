@@ -1,7 +1,7 @@
 ----------
--- Step 0 - Create a Query 
+-- Step 0 - Create a Query
 ----------
--- Query:  
+-- Query:
 
 
 
@@ -88,7 +88,7 @@
 
     -- Did the execution time improve (decrease)?
 
-   
+
 
     -- Do you see any other opportunities for making this query more efficient?
 
